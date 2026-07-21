@@ -185,28 +185,90 @@
     </article>
   </main>
 
+  <section class="slides-overview" id="slidesOverview" role="dialog" aria-modal="true" aria-labelledby="overviewTitle" hidden>
+    <div class="slides-overview__panel">
+      <header class="slides-overview__header">
+        <div><span>MTEL AI PRODUCTION PLATFORM</span><h2 id="overviewTitle">All slides</h2></div>
+        <button id="overviewClose" type="button" aria-label="Close slide overview">×</button>
+      </header>
+      <div class="slides-overview__meta"><span>SELECT A SLIDE TO NAVIGATE</span><span id="overviewProgress">01 / 15</span></div>
+      <ol class="slides-overview__list" id="overviewList"></ol>
+    </div>
+  </section>
   <nav class="deck-controls" aria-label="Slide controls">
+    <button id="overviewToggle" class="overview-toggle" aria-label="Open all slides" aria-haspopup="dialog"><span></span><span></span><span></span><span></span></button>
     <button id="prev" aria-label="Previous slide">←</button>
     <div class="progress"><span id="progressBar"></span></div>
     <span id="slideCount">01 / 15</span>
     <button id="next" aria-label="Next slide">→</button>
   </nav>
-  <div class="key-hint">← → to navigate · F for fullscreen</div>
+  <div class="key-hint">← → navigate · O overview · F fullscreen</div>
   <script>
     const slides = [...document.querySelectorAll('.deck-slide')];
     const count = document.getElementById('slideCount');
     const bar = document.getElementById('progressBar');
+    const overview = document.getElementById('slidesOverview');
+    const overviewList = document.getElementById('overviewList');
+    const overviewProgress = document.getElementById('overviewProgress');
+    const slideTitles = [
+      'Cover — From AI Experiments to Production',
+      'The Shift — AI Is Fast. Workflow Is Not.',
+      'Traditional Production — A Chain of Friction',
+      'The New Operating Model — One Canvas',
+      'Storyboard — Days to Hours',
+      'Content Creation — One Brief, Many Formats',
+      'Video Production — Production Without Drag',
+      'AI Workflow — Build Once, Run Repeatedly',
+      'Digital Human — Always-on Presenters',
+      'Live Streaming — Operate Leaner',
+      'UGC at Scale — More Creative Bets',
+      'Video Replacement — Update Without Reshooting',
+      'Platform Capability — 79 LLMs',
+      'The BytePlus Advantage',
+      'The Next Move — More Production'
+    ];
+    overviewList.innerHTML = slideTitles.map((title, i) => `<li><button type="button" data-go="${i}"><i>${String(i + 1).padStart(2, '0')}</i><span>${title}</span><em>→</em></button></li>`).join('');
+    slides.forEach((slide, i) => {
+      slide.dataset.slide = i + 1;
+      const number = slide.querySelector('.slide-footer span:last-child');
+      if (number) number.textContent = `${String(i + 1).padStart(2, '0')} / ${slides.length}`;
+    });
     let current = Math.max(0, Math.min(slides.length - 1, Number(location.hash.slice(1)) - 1 || 0));
     function show(index) {
       current = (index + slides.length) % slides.length;
       slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
       count.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
       bar.style.width = `${((current + 1) / slides.length) * 100}%`;
+      overviewProgress.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
+      overviewList.querySelectorAll('button').forEach((button, i) => {
+        button.classList.toggle('is-current', i === current);
+        if (i === current) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
+      });
       history.replaceState(null, '', `#${current + 1}`);
+    }
+    function openOverview() {
+      overview.hidden = false;
+      requestAnimationFrame(() => overview.classList.add('is-open'));
+      overviewList.querySelector('.is-current')?.scrollIntoView({ block: 'center' });
+      document.getElementById('overviewClose').focus();
+    }
+    function closeOverview() {
+      overview.classList.remove('is-open');
+      setTimeout(() => { overview.hidden = true; document.getElementById('overviewToggle').focus(); }, 220);
     }
     document.getElementById('prev').addEventListener('click', () => show(current - 1));
     document.getElementById('next').addEventListener('click', () => show(current + 1));
+    document.getElementById('overviewToggle').addEventListener('click', openOverview);
+    document.getElementById('overviewClose').addEventListener('click', closeOverview);
+    overviewList.addEventListener('click', event => {
+      const target = event.target.closest('[data-go]');
+      if (target) { show(Number(target.dataset.go)); closeOverview(); }
+    });
+    overview.addEventListener('click', event => { if (event.target === overview) closeOverview(); });
     addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !overview.hidden) { closeOverview(); return; }
+      if (event.key.toLowerCase() === 'o') { overview.hidden ? openOverview() : closeOverview(); return; }
+      if (!overview.hidden) return;
       if (['ArrowRight', 'PageDown', ' '].includes(event.key)) show(current + 1);
       if (['ArrowLeft', 'PageUp'].includes(event.key)) show(current - 1);
       if (event.key.toLowerCase() === 'f') document.documentElement.requestFullscreen?.();
