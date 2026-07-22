@@ -9,11 +9,11 @@
 </head>
 <body class="deck-body">
   <main class="deck" aria-live="polite">
-    <article class="deck-slide hero-slide is-active" data-slide="1">
+    <article class="deck-slide hero-slide is-active" data-slide="1" role="group" aria-roledescription="slide" aria-label="1 of 15: Basicware AI Workflow Solution">
       <header class="deck-brand"><img src="assets/mtel%20logo.png" alt="MTEL"><span>AI PRODUCTION PLATFORM</span></header>
       <div class="hero-copy">
         <p class="kicker"><i></i> One platform. Every AI workflow.</p>
-        <h1>From AI experiments<br>to <span>production.</span></h1>
+        <h1>Basicware AI<br>Workflow <span>Solution</span></h1>
         <p class="deck-lede">Replace fragmented tools, manual handoffs, and unpredictable costs with a connected production system for content, video, digital humans, and live experiences.</p>
       </div>
       <div class="hero-system" aria-label="Connected AI production system visualization">
@@ -24,7 +24,7 @@
       <footer class="slide-footer"><span>MTEL × BytePlus</span><span>01 / 15</span></footer>
     </article>
 
-    <article class="deck-slide dark-slide" data-slide="2">
+    <article class="deck-slide dark-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="2 of 15: The real bottleneck">
       <header class="deck-brand deck-brand--light"><img src="assets/mtel%20logo.png" alt="MTEL"><span>THE SHIFT</span></header>
       <div class="statement-layout">
         <p class="kicker kicker--light"><i></i> The real bottleneck</p>
@@ -66,11 +66,37 @@
     </article>
 
     <article class="deck-slide" data-slide="5">
-      <header class="deck-brand"><img src="assets/mtel%20logo.png" alt="MTEL"><span>USE CASE 01 · STORYBOARD</span></header>
-      <div class="compare-heading"><div><p class="kicker"><i></i> From brief to visual direction</p><h2>Storyboard in one working session.</h2></div><span class="impact-chip">DAYS → HOURS</span></div>
-      <div class="compare-grid">
-        <section class="compare-card manual"><label>TRADITIONAL</label><h3>8 steps · 2–5 days</h3><ol><li>Interpret brief</li><li>Write scene list</li><li>Sketch frames</li><li>Source references</li><li>Build layouts</li><li>Review internally</li><li>Revise directions</li><li>Export handoff</li></ol><p>High coordination · specialist dependent</p></section>
-        <section class="compare-card platform"><label>WITH MTEL</label><h3>3 steps · 1–3 hours</h3><ol><li>Drop in the brief</li><li>Generate scenes on canvas</li><li>Refine, approve, export</li></ol><div class="result"><b>Result</b><span>Consistent frames, editable prompts, production-ready sequence.</span></div></section>
+      <header class="deck-brand"><img src="assets/mtel%20logo.png" alt="MTEL"><span>USE CASE 01 · STORYBOARD TO VIDEO</span></header>
+      <div class="compare-heading"><div><p class="kicker"><i></i> Traditional vs. AI workflow</p><h2>Same storyboard.<br>A <span>radically faster</span> path.</h2></div><span class="impact-chip">7 STEPS → 5 STEPS</span></div>
+      <div class="workflow-compare">
+        <div class="wc-track wc-track--old">
+          <div class="wc-track-head"><b>Traditional way</b><span>Manual · multiple tools · time-consuming</span></div>
+          <div class="wc-chain">
+            <div class="wc-step" style="--i:0"><em>01</em><b>Storyboarding</b><small>Scenes, sketches, shot plan</small></div><i>→</i>
+            <div class="wc-step" style="--i:1"><em>02</em><b>Asset creation</b><small>Images, graphics, backgrounds</small></div><i>→</i>
+            <div class="wc-step" style="--i:2"><em>03</em><b>Shoot / source</b><small>Footage or stock video</small></div><i>→</i>
+            <div class="wc-step" style="--i:3"><em>04</em><b>Editing</b><small>Cuts, transitions, text</small></div><i>→</i>
+            <div class="wc-step" style="--i:4"><em>05</em><b>Sound design</b><small>Voiceover &amp; music</small></div><i>→</i>
+            <div class="wc-step" style="--i:5"><em>06</em><b>Review cycles</b><small>Feedback &amp; revise</small></div><i>→</i>
+            <div class="wc-step" style="--i:6"><em>07</em><b>Export</b><small>Every format, by hand</small></div>
+          </div>
+        </div>
+        <div class="wc-vs" aria-hidden="true"><span>VS</span></div>
+        <div class="wc-track wc-track--ai">
+          <div class="wc-track-head"><b>With MTEL</b><span>AI-powered · one platform · end-to-end</span></div>
+          <div class="wc-chain">
+            <div class="wc-step" style="--i:0"><em>01</em><b>Upload storyboard</b><small>Or just describe the idea</small></div><i>→</i>
+            <div class="wc-step" style="--i:1"><em>02</em><b>AI generates scenes</b><small>Cast, shots, assets</small></div><i>→</i>
+            <div class="wc-step" style="--i:2"><em>03</em><b>Auto-assemble &amp; edit</b><small>Transitions, style match</small></div><i>→</i>
+            <div class="wc-step" style="--i:3"><em>04</em><b>AI voice &amp; audio</b><small>Voiceover, music, SFX</small></div><i>→</i>
+            <div class="wc-step" style="--i:4"><em>05</em><b>Preview &amp; export</b><small>Fine-tune, publish</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict-strip">
+        <div class="verdict-pill"><b>7 → 5</b><span>Production steps</span></div>
+        <div class="verdict-pill"><b>Days → Hours</b><span>Turnaround time</span></div>
+        <div class="verdict-pill verdict-pill--hero"><b>10×</b><span>Faster, consistent output</span></div>
       </div>
       <footer class="slide-footer"><span>ILLUSTRATIVE ESTIMATES</span><span>05 / 15</span></footer>
     </article>
@@ -202,7 +228,6 @@
     <span id="slideCount">01 / 15</span>
     <button id="next" aria-label="Next slide">→</button>
   </nav>
-  <div class="key-hint">← → navigate · O overview · F fullscreen</div>
   <script>
     const slides = [...document.querySelectorAll('.deck-slide')];
     const count = document.getElementById('slideCount');
@@ -211,11 +236,11 @@
     const overviewList = document.getElementById('overviewList');
     const overviewProgress = document.getElementById('overviewProgress');
     const slideTitles = [
-      'Cover — From AI Experiments to Production',
+      'Cover — Basicware AI Workflow Solution',
       'The Shift — AI Is Fast. Workflow Is Not.',
       'Traditional Production — A Chain of Friction',
       'The New Operating Model — One Canvas',
-      'Storyboard — Days to Hours',
+      'Storyboard to Video — Traditional vs. AI',
       'Content Creation — One Brief, Many Formats',
       'Video Production — Production Without Drag',
       'AI Workflow — Build Once, Run Repeatedly',
@@ -230,13 +255,26 @@
     overviewList.innerHTML = slideTitles.map((title, i) => `<li><button type="button" data-go="${i}"><i>${String(i + 1).padStart(2, '0')}</i><span>${title}</span><em>→</em></button></li>`).join('');
     slides.forEach((slide, i) => {
       slide.dataset.slide = i + 1;
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `${i + 1} of ${slides.length}: ${slideTitles[i]}`);
       const number = slide.querySelector('.slide-footer span:last-child');
       if (number) number.textContent = `${String(i + 1).padStart(2, '0')} / ${slides.length}`;
     });
     let current = Math.max(0, Math.min(slides.length - 1, Number(location.hash.slice(1)) - 1 || 0));
     function show(index) {
       current = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+      const activeSlide = slides[current];
+      const hasDarkBackground = activeSlide.classList.contains('hero-slide') ||
+        activeSlide.classList.contains('yellow-slide') ||
+        activeSlide.classList.contains('dark-slide') ||
+        activeSlide.classList.contains('final-slide');
+      document.body.dataset.controlTheme = hasDarkBackground ? 'on-dark' : 'on-light';
+      slides.forEach((slide, i) => {
+        const isCurrent = i === current;
+        slide.classList.toggle('is-active', isCurrent);
+        slide.setAttribute('aria-hidden', String(!isCurrent));
+      });
       count.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
       bar.style.width = `${((current + 1) / slides.length) * 100}%`;
       overviewProgress.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
