@@ -70,20 +70,23 @@ Basic workflow:
 
 - API keys, passwords, tokens, and private credentials must not be committed to the repository.
 
-## Current Deliverable — MTEL AI Platform Pitch Deck
+## Current Deliverable — Basicware AI Workflow Solution Pitch Deck
 
 - Format: responsive HTML/CSS presentation with keyboard and on-screen navigation.
 - Entry point: `index.html`; shared styling and deck-specific rules: `globals.css`.
-- Slide count: 15 content slides.
+- Slide count: 17 content slides.
 - Language: English.
 - Audience: potential clients, investors, enterprise partners, and internal stakeholders.
 - Brand asset: `assets/mtel logo.png`.
-- Narrative: manual production friction → unified MTEL workflow → eight use cases → platform capability → BytePlus advantage → call to action.
+- Narrative: manual production friction → unified Basicware workflow → eleven use cases, each showing readiness, traditional vs. AI-enabled steps, indicative timing, platform role, and business outcome.
 - Approved claims supplied by the client: 79 consolidated LLMs, official BytePlus partnership, enterprise/early-access technology, and token pricing 15% below market/retail.
 - Benchmark timings inside use-case slides are explicitly labeled illustrative.
-- All Slides overview: a reference-matched dark navigation overlay lists all 15 slides, highlights the current slide, and provides direct navigation. Open from the four-square control or press `O`; close with the × control, backdrop click, or `Escape`.
+- All Slides overview: a reference-matched dark navigation overlay lists all 14 slides, highlights the current slide, and provides direct navigation. Open from the four-square control or press `O`; close with the × control, backdrop click, or `Escape`.
 - Accessibility QA: normal text targets at least 4.5:1 contrast; large display text targets at least 3:1. Small operational labels were raised to 11–13px, body copy to 13–21px, and primary headings remain 42–116px depending on viewport.
 - Information QA: the 79-LLM, BytePlus partnership, early-access, and 15%-lower token claims are client-approved statements. Workflow step/time comparisons are illustrative and are qualified in the deck; commercial terms remain subject to agreement and usage profile.
 - Navigation: Left/Right arrows, Page Up/Page Down, Space, on-screen controls, and `F` for fullscreen.
 - Local preview: currently running at `http://127.0.0.1:4174/index.html`; use `python3 -m http.server 4174` to restart it.
-- Last updated: 2026-07-21.
+- Slides 04–14: Storyboard, Content Creation, Video Production, AI Workflow (Canvas), Digital Human, Live Streaming, UGC, Video Replacement, Upscaler, Multi-Resolution Artworks, and Audience Intelligence Loop.
+- Slides 15–17: Platform capability, BytePlus advantage, and the next-step pilot-to-production call to action.
+- Readiness language is explicit: Live, Live (partial), Available (implicit), Roadmap, Vision, and Live (managed service).
+- Last updated: 2026-07-22.
